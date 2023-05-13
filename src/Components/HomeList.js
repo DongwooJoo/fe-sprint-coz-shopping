@@ -1,7 +1,7 @@
 import React from "react";
 
-function Footer() {
+function HomeList() {
   return <div></div>;
 }
 
-export default Footer;
+export default HomeList;
