@@ -3,18 +3,16 @@ import logo from "./appLogo.jpg";
 import Hamburger from "./Hamburger";
 function Header() {
   return (
-    <nav>
-      <span id="title">
-        <img id="app-logo" src={logo} alt="logo" />
-        <span id="app-firstName">CLICK &</span>
-        <span id="app-lastName">COLLECT</span>
-      </span>
-      <Hamburger />
-    </nav>
+    <header>
+      <img id="app-logo" src={logo} alt="logo" />
+      <div id="title">
+      <span id="app-firstName">CLICK &</span>
+      <span id="app-lastName">COLLECT</span>
+      </div>
+      <nav>
+        <Hamburger />
+      </nav>
+    </header>
   );
 }
-// 수도 코드
-// 1. 로고
-// <div>
-// <nav>
 export default Header;

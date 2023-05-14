@@ -2,9 +2,10 @@
   text-align: center;
 }
 
-#title {
+header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -31,4 +32,22 @@
 @font-face {
   font-family: "KBO-Dia-Gothic_bold";
   src: url("./fonts/KBO Dia Gothic_bold.ttf");
+}
+
+#title {
+  margin-right: 500px;
+}
+
+#hamburger svg {
+  color: #3b8680;
+  margin-right: 50px;
+  font-size: xx-large;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  color: #707070;
 }
