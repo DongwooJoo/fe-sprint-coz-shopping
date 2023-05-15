@@ -1,7 +1,17 @@
-import React from "react";
+/** @format */
+
+import React from 'react';
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 function BookmarkPage() {
-  return <div>BookmarkList</div>;
+  return (
+    <div>
+      <Header />
+      bookmark
+      <Footer />
+    </div>
+  );
 }
 
 export default BookmarkPage;

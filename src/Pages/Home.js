@@ -1,7 +1,9 @@
-import React from "react";
-import Header from "../Components/Header";
-import HomeList from "../Components/HomeList";
-import Footer from "../Components/Footer";
+/** @format */
+
+import React from 'react';
+import Header from '../Components/Header';
+import HomeList from '../Components/HomeList';
+import Footer from '../Components/Footer';
 
 function Home() {
   return (

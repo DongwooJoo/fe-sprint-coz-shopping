@@ -1,3 +1,5 @@
+/** @format */
+
 .App {
   text-align: center;
 }
@@ -21,7 +23,7 @@ header {
 #app-firstName {
   color: rgba(59, 134, 128, 1);
   font-size: 1.7rem;
-  font-family: "KBO-Dia-Gothic_bold";
+  font-family: 'KBO-Dia-Gothic_bold';
   font-style: italic;
 }
 
@@ -29,13 +31,13 @@ header {
   margin-right: 13.87rem;
   color: rgba(248, 157, 65, 1);
   font-size: 1.9rem;
-  font-family: "KBO-Dia-Gothic_bold";
+  font-family: 'KBO-Dia-Gothic_bold';
   font-style: italic;
 }
 
 @font-face {
-  font-family: "KBO-Dia-Gothic_bold";
-  src: url("./fonts/KBO Dia Gothic_bold.ttf");
+  font-family: 'KBO-Dia-Gothic_bold';
+  src: url('./fonts/KBO Dia Gothic_bold.ttf');
 }
 
 #hamburger-icon {
@@ -82,18 +84,17 @@ ul {
   animation: slideDown 0.8s ease-in-out forwards;
 }
 
-
 @keyframes slideDown {
   from {
-  opacity: 0;
-  transform: translateY(-10px);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-  opacity: 1;
-  transform: translateY(10px);
+    opacity: 1;
+    transform: translateY(10px);
   }
-  }
-  
+}
+
 .faGift {
   color: #3b8680;
 }
@@ -107,7 +108,7 @@ ul {
 .greeting {
   padding: 0.3rem;
 }
-.itemListPage {
+.itemsPage {
   border: 1px solid gray;
   border-left: none;
   border-right: none;
