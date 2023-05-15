@@ -1,7 +1,7 @@
 import React from "react";
 
 function HomeList() {
-  return <main>ddd</main>;
+  return <main>HomeList</main>;
 }
 
 export default HomeList;

@@ -7,11 +7,15 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  height: 100px;
+  z-index: 998;
 }
 
 #app-logo {
-  width: 15%;
-  height: 15%;
+  width: 130px;
+  height: 130px;
 }
 
 #app-firstName {
@@ -22,7 +26,7 @@ header {
 }
 
 #app-lastName {
-  margin-left: 0.3rem;
+  margin-right: 13.87rem;
   color: rgba(248, 157, 65, 1);
   font-size: 1.9rem;
   font-family: "KBO-Dia-Gothic_bold";
@@ -34,14 +38,20 @@ header {
   src: url("./fonts/KBO Dia Gothic_bold.ttf");
 }
 
-#title {
-  margin-right: 500px;
+#hamburger-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-#hamburger svg {
+#hamburger-icon svg {
   color: #3b8680;
   margin-right: 50px;
   font-size: xx-large;
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  cursor: pointer;
 }
 
 footer {
@@ -50,4 +60,60 @@ footer {
   align-items: center;
   font-size: 1rem;
   color: #707070;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+ul {
+  padding-left: 0;
+}
+
+#dropdown {
+  position: fixed;
+  top: 70px;
+  right: 3rem;
+  border-radius: 10px;
+  border: 1px solid gray;
+  background-color: white;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  animation: slideDown 0.8s ease-in-out forwards;
+}
+
+
+@keyframes slideDown {
+  from {
+  opacity: 0;
+  transform: translateY(-10px);
+  }
+  to {
+  opacity: 1;
+  transform: translateY(10px);
+  }
+  }
+  
+.faGift {
+  color: #3b8680;
+}
+
+.faStar {
+  color: #3b8680;
+}
+
+/* Hamburger.css */
+
+.greeting {
+  padding: 0.3rem;
+}
+.itemListPage {
+  border: 1px solid gray;
+  border-left: none;
+  border-right: none;
+  padding: 0.3rem;
+}
+
+.bookmarkPage {
+  padding: 0.3rem;
 }

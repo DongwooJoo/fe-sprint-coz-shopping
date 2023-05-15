@@ -1,7 +1,7 @@
 import React from "react";
 
 function ItemsPage() {
-  return <div></div>;
+  return <div>ItemList</div>;
 }
 
 export default ItemsPage;
