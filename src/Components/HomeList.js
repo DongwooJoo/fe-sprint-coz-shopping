@@ -1,7 +1,14 @@
-import React from "react";
+/** @format */
+
+import React from 'react';
+import Item from './Item';
 
 function HomeList() {
-  return <main>HomeList</main>;
+  return (
+    <div>
+      <Item />
+    </div>
+  );
 }
 
 export default HomeList;
