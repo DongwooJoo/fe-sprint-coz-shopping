@@ -5,8 +5,10 @@ import Item from './Item';
 
 function HomeList() {
   return (
-    <div>
-      <Item />
+    <div className='homelist'>
+      <div className='item_box'>
+        <Item />
+      </div>
     </div>
   );
 }

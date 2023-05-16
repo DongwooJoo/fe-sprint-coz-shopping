@@ -7,7 +7,7 @@
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   position: sticky;
   top: 0;
@@ -15,9 +15,16 @@ header {
   z-index: 998;
 }
 
+/* header component */
+
+.title {
+  flex: 1;
+  max-width: 100%;
+}
+
 #app-logo {
-  width: 130px;
-  height: 130px;
+  width: 6rem;
+  height: 6rem;
 }
 
 #app-firstName {
@@ -28,7 +35,6 @@ header {
 }
 
 #app-lastName {
-  margin-right: 13.87rem;
   color: rgba(248, 157, 65, 1);
   font-size: 1.9rem;
   font-family: 'KBO-Dia-Gothic_bold';
@@ -44,6 +50,8 @@ header {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  flex: 1;
+  max-width: 100%;
 }
 
 #hamburger-icon svg {
@@ -56,6 +64,8 @@ header {
   cursor: pointer;
 }
 
+/* footer component */
+
 footer {
   display: flex;
   flex-direction: column;
@@ -66,6 +76,8 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+/* hamburger component */
 
 ul {
   padding-left: 0;
@@ -103,8 +115,6 @@ ul {
   color: #3b8680;
 }
 
-/* Hamburger.css */
-
 .greeting {
   padding: 0.3rem;
 }
@@ -118,3 +128,12 @@ ul {
 .bookmarkPage {
   padding: 0.3rem;
 }
+
+/* homelist */
+
+.item_box {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+
+/* item component */
