@@ -13,4 +13,21 @@ function HomeList() {
   );
 }
 
+/* 
+div homelist
+
+div 상품 리스트
+/div 상품 리스트
+
+
+div 북마크 리스트
+div
+
+div 아이템 리스트
+
+/div 북마크 리스트
+
+/div homelist
+*/
+
 export default HomeList;

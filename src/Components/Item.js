@@ -15,6 +15,7 @@ function Item() {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         setItems(data); // item box에는 데이터 1개만 할당한다.
       })
       .catch((error) => console.log(error));
@@ -28,27 +29,43 @@ function Item() {
             {['Product', 'Exhibition', 'Category'].includes(item.type) && (
               <img src={item.image_url} alt={item.title} />
             )}
-
             {item.type === 'Brand' && (
               <img src={item.brand_image_url} alt={item.title} />
             )}
           </div>
           <div className='item_info'>
             <div className='item_info1'>
-              <div className='item_info1_title'>{item.title}</div>
-              {item.type === 'Product' && (
-                <div className='item_info1_subtitle'>
-                  {item.discountPercentage}
-                </div>
-              )}
-              {item.type === 'Brand' && (
-                <div className='item_info1_subtitle'>"관심 고객수"</div>
-              )}
+              <div className='item_info1_title'>
+                <span>
+                  {item.type === 'Category' && '# '}
+                  {item.title}
+                </span>
+                {item.type === 'Brand' && <span>{item.brand_name}</span>}
+              </div>
+              <div className='item_info1_others'>
+                {item.type === 'Product' && (
+                  <span className='item_info1_dc'>
+                    {item.discountPercentage}%
+                  </span>
+                )}
+                {item.type === 'Brand' && <span>관심고객수</span>}
+              </div>
             </div>
 
             <div className='item_info2'>
-              {item.type === 'Product' && <div>{item.price}</div>}
-              {item.type === 'Brand' && <div>{item.follower}</div>}
+              <div className='item_info2_price'>
+                {item.type === 'Product' && (
+                  <span>
+                    {item.price
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    원
+                  </span>
+                )}
+              </div>
+              <div className='item_info2_follower'>
+                {item.type === 'Brand' && <span>{item.follower}</span>}
+              </div>
             </div>
           </div>
         </div>
