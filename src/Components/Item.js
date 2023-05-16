@@ -35,20 +35,20 @@ function Item() {
           </div>
           <div className='item_info'>
             <div className='item_info1'>
-              <span className='item_info1_title'>{item.title}</span>
+              <div className='item_info1_title'>{item.title}</div>
               {item.type === 'Product' && (
-                <span className='item_info1_subtitle'>
+                <div className='item_info1_subtitle'>
                   {item.discountPercentage}
-                </span>
+                </div>
               )}
               {item.type === 'Brand' && (
-                <span className='item_info1_subtitle'>"관심 고객수"</span>
+                <div className='item_info1_subtitle'>"관심 고객수"</div>
               )}
             </div>
 
             <div className='item_info2'>
-              {item.type === 'Product' && <span>{item.price}</span>}
-              {item.type === 'Brand' && <span>{item.follower}</span>}
+              {item.type === 'Product' && <div>{item.price}</div>}
+              {item.type === 'Brand' && <div>{item.follower}</div>}
             </div>
           </div>
         </div>
