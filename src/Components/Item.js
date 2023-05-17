@@ -2,6 +2,8 @@
 // '수도코드를 작성해보자.';
 
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 function Item() {
   const [items, setItems] = useState([]);
@@ -21,11 +23,15 @@ function Item() {
       .catch((error) => console.log(error));
   }, []);
 
+  // 북마크 true 시, 노랑색으로 fill
+  // 북마크 false 시, 회색으로 fill
+
   return (
     <div className='item'>
       {items.map((item) => (
         <div className='item_data' key={item.id}>
           <div className='item_img'>
+            <FontAwesomeIcon icon={faStar} className='faStar' />
             {['Product', 'Exhibition', 'Category'].includes(item.type) && (
               <img src={item.image_url} alt={item.title} />
             )}
@@ -64,7 +70,13 @@ function Item() {
                 )}
               </div>
               <div className='item_info2_follower'>
-                {item.type === 'Brand' && <span>{item.follower}</span>}
+                {item.type === 'Brand' && (
+                  <span>
+                    {item.follower
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  </span>
+                )}
               </div>
             </div>
           </div>

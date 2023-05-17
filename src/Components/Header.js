@@ -17,23 +17,20 @@ function Header() {
   };
 
   return (
-    <div>
-      <header>
-        <Link to='/'>
-          <img id='app-logo' src={logo} alt='logo' />
-        </Link>
-        <div id='title'>
-          <span id='app-firstName'>CLICK &</span>
-          <span id='app-lastName'>COLLECT</span>
-        </div>
-        <nav>
-          <div id='hamburger-icon' className={isActive ? 'active' : ''}>
-            <FontAwesomeIcon icon={faBars} onClick={handleHamburger} />
-          </div>
-        </nav>
-      </header>
+    <header>
+      <Link to='/'>
+        <img id='app_logo' src={logo} alt='logo' />
+      </Link>
+      <div id='title'>
+        <span id='app_firstName'>CLICK &</span>
+        <br />
+        <span id='app_lastName'>COLLECT</span>
+      </div>
+      <div id='hamburger_icon' className={isActive ? 'active' : ''}>
+        <FontAwesomeIcon icon={faBars} onClick={handleHamburger} />
+      </div>
       <Hamburger isOpen={IsOpenHamburger} />
-    </div>
+    </header>
   );
 }
 export default Header;
