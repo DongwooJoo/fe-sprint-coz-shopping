@@ -5,11 +5,11 @@ import Header from '../Components/Header';
 import HomeList from '../Components/HomeList';
 import Footer from '../Components/Footer';
 
-function Home() {
+function Home({ items, toggleBookmark }) {
   return (
     <div>
       <Header />
-      <HomeList />
+      <HomeList items={items} toggleBookmark={toggleBookmark} />
       <Footer />
     </div>
   );

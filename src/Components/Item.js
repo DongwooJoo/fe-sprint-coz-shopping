@@ -1,87 +1,72 @@
 /** @format */
 // '수도코드를 작성해보자.';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-function Item() {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    fetch('http://cozshopping.codestates-seb.link/api/v1/products?count=1')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setItems(data); // item box에는 데이터 1개만 할당한다.
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  // 북마크 true 시, 노랑색으로 fill
-  // 북마크 false 시, 회색으로 fill
-
+function Item({ items, toggleBookmark }) {
   return (
     <div className='item'>
-      {items.map((item) => (
-        <div className='item_data' key={item.id}>
-          <div className='item_img'>
-            <FontAwesomeIcon icon={faStar} className='faStar' />
-            {['Product', 'Exhibition', 'Category'].includes(item.type) && (
-              <img src={item.image_url} alt={item.title} />
-            )}
-            {item.type === 'Brand' && (
-              <img src={item.brand_image_url} alt={item.title} />
-            )}
-          </div>
-          <div className='item_info'>
-            <div className='item_info1'>
-              <div className='item_info1_title'>
-                <span>
-                  {item.type === 'Category' && '# '}
-                  {item.title}
-                </span>
-                {item.type === 'Brand' && <span>{item.brand_name}</span>}
-              </div>
-              <div className='item_info1_others'>
-                {item.type === 'Product' && (
-                  <span className='item_info1_dc'>
-                    {item.discountPercentage}%
-                  </span>
-                )}
-                {item.type === 'Brand' && <span>관심고객수</span>}
-              </div>
+      <div className='item_data'>
+        <div className='item_img'>
+          <FontAwesomeIcon
+            icon={faStar}
+            className={
+              items.isBookmarked ? 'faStar faStar_bookmarked' : 'faStar'
+            }
+            onClick={() => {
+              toggleBookmark(items.id);
+              console.log(items.id);
+            }}
+          />
+          {['Product', 'Exhibition', 'Category'].includes(items.type) && (
+            <img src={items.image_url} alt={items.title} />
+          )}
+          {items.type === 'Brand' && (
+            <img src={items.brand_image_url} alt={items.title} />
+          )}
+        </div>
+        <div className='item_info'>
+          <div className='item_info1'>
+            <div className='item_info1_title'>
+              <span>
+                {items.type === 'Category' && '# '}
+                {items.title}
+              </span>
+              {items.type === 'Brand' && <span>{items.brand_name}</span>}
             </div>
+            <div className='item_info1_others'>
+              {items.type === 'Product' && (
+                <span className='item_info1_dc'>
+                  {items.discountPercentage}%
+                </span>
+              )}
+              {items.type === 'Brand' && <span>관심고객수</span>}
+            </div>
+          </div>
 
-            <div className='item_info2'>
-              <div className='item_info2_price'>
-                {item.type === 'Product' && (
-                  <span>
-                    {item.price
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                    원
-                  </span>
-                )}
-              </div>
-              <div className='item_info2_follower'>
-                {item.type === 'Brand' && (
-                  <span>
-                    {item.follower
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  </span>
-                )}
-              </div>
+          <div className='item_info2'>
+            <div className='item_info2_price'>
+              {items.type === 'Product' && (
+                <span>
+                  {items.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </span>
+              )}
+            </div>
+            <div className='item_info2_follower'>
+              {items.type === 'Brand' && (
+                <span>
+                  {items.follower
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                </span>
+              )}
             </div>
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
@@ -107,3 +92,17 @@ export default Item;
 // c-2) Category 인 경우, title만 불러온다. 앞에 #을 붙인다.
 // c-3) Exhibition 인 경우, title, sub_title을 불러온다. sub_title은 왼쪽 정렬한다.
 // c-4) Brand 인 경우, title, 관심 고객수, follower을 불러온다.
+
+// 배운 점
+// 객체 리터럴 내에서 중괄호 {}는 객체를 정의하거나 객체 리터럴을 사용할 때 사용됩니다.
+// 하지만, 중괄호 자체는 블록으로 간주되어 문맥을 혼란스럽게 할 수 있습니다.
+// 그래서 중괄호 내에서 객체 리터럴을 사용할 때는, 해당 중괄호를 소괄호()로 감싸는 것이 좋습니다.
+// 이렇게 하면 JavaScript 엔진이 중괄호를 객체 리터럴로 해석하도록 알 수 있습니다.
+
+// toggleBookmark 함수
+// 처음 setItems로 감싸는 이유는 상태를 업데이트 시켜주기 위함이다.
+// 매개변수 prevItems로 설정한 이유는 이전 아이템이기 떄문이다.
+// 이전 아이템을 map을 이용해서, item의 itme.id와 첫 매개변수로 입력된 itemId와 같다면,
+// 이전 아이템을 map을 이용해서, item의 itme.id와 첫 매개변수로 입력된 itemId와 같다면,
+// 북마크 true 시, 노랑색으로 fill
+// 북마크 false 시, 회색으로 fill
