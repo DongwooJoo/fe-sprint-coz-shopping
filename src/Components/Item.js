@@ -17,7 +17,6 @@ function Item({ items, toggleBookmark }) {
             }
             onClick={() => {
               toggleBookmark(items.id);
-              console.log(items.id);
             }}
           />
           {['Product', 'Exhibition', 'Category'].includes(items.type) && (

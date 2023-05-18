@@ -9,23 +9,26 @@ import {
   faCalendarCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
-function Category({ categoriesList }) {
+function Category({ categoriesList, buttonCategory }) {
   return (
     <div className='category'>
-      <div className='category_img_container'>
+      <div
+        className='category_img_container'
+        onClick={() => buttonCategory(categoriesList.id)}
+      >
         <div className='category_img'>
-          {categoriesList.id === '전체' && <FontAwesomeIcon icon={faStore} />}
+          {categoriesList.type === '전체' && <FontAwesomeIcon icon={faStore} />}
 
-          {categoriesList.id === '상품' && (
+          {categoriesList.type === '상품' && (
             <FontAwesomeIcon icon={faCartShopping} />
           )}
-          {categoriesList.id === '카테고리' && (
+          {categoriesList.type === '카테고리' && (
             <FontAwesomeIcon icon={faList} />
           )}
-          {categoriesList.id === '기획전' && (
+          {categoriesList.type === '기획전' && (
             <FontAwesomeIcon icon={faCalendarCheck} />
           )}
-          {categoriesList.id === '브랜드' && (
+          {categoriesList.type === '브랜드' && (
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 384 512'
@@ -38,11 +41,11 @@ function Category({ categoriesList }) {
       </div>
       <div className='category_title'></div>
       <span>
-        {categoriesList.id === '전체' && '전체'}
-        {categoriesList.id === '상품' && '상품'}
-        {categoriesList.id === '카테고리' && '카테고리'}
-        {categoriesList.id === '기획전' && '기획전'}
-        {categoriesList.id === '브랜드' && '브랜드'}
+        {categoriesList.type === '전체' && '전체'}
+        {categoriesList.type === '상품' && '상품'}
+        {categoriesList.type === '카테고리' && '카테고리'}
+        {categoriesList.type === '기획전' && '기획전'}
+        {categoriesList.type === '브랜드' && '브랜드'}
       </span>
     </div>
   );

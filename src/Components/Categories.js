@@ -3,13 +3,13 @@
 import React from 'react';
 import Category from './Category';
 
-function Categories({ items, toggleBookmark }) {
+function Categories({ items, toggleBookmark, buttonCategory }) {
   const categoriesList = [
-    { id: '전체' },
-    { id: '상품' },
-    { id: '카테고리' },
-    { id: '기획전' },
-    { id: '브랜드' },
+    { type: '전체' },
+    { type: '상품' },
+    { type: '카테고리' },
+    { type: '기획전' },
+    { type: '브랜드' },
   ];
 
   return (
@@ -21,6 +21,7 @@ function Categories({ items, toggleBookmark }) {
             items={items}
             categoriesList={categoriesList}
             toggleBookmark={toggleBookmark}
+            buttonCategory={buttonCategory}
           />
         );
       })}

@@ -9,6 +9,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const pageType = ['Home', 'ItemsPage', 'BookmarkPage'];
 
   const productData = () => {
     fetch('http://cozshopping.codestates-seb.link/api/v1/products?')
@@ -24,7 +26,6 @@ function App() {
           isBookmarked: false,
         }));
         setItems(addisBookmarked);
-        console.log(addisBookmarked);
       })
       .catch((err) => console.log(err));
   };
@@ -44,7 +45,15 @@ function App() {
     setItems(updatedItems);
   };
 
-  const pageType = ['Home', 'ItemsPage', 'BookmarkPage'];
+  // 클릭했을 때 매개변수 itemId 전달
+  const buttonCategory = (categoryId) => {
+    if (categoryId === '전체') {
+      setFilteredItems(items);
+    } else {
+      const filteredItems = items.filter((item) => item.type === categoryId);
+      setFilteredItems(filteredItems);
+    }
+  };
 
   return (
     <div className='App'>
@@ -67,6 +76,7 @@ function App() {
                 items={items}
                 pageType={pageType}
                 toggleBookmark={toggleBookmark}
+                buttonCategory={buttonCategory}
               />
             }
           />
@@ -77,6 +87,7 @@ function App() {
                 items={items}
                 pageType={pageType}
                 toggleBookmark={toggleBookmark}
+                buttonCategory={buttonCategory}
               />
             }
           />

@@ -6,7 +6,7 @@ import React from 'react';
 import Item from './Item';
 import Categories from './Categories';
 
-function SortedList({ items, toggleBookmark, pageType }) {
+function SortedList({ items, toggleBookmark, pageType, buttonCategory }) {
   let filteredItems = items;
 
   if (pageType === 'BookmarkPage') {
@@ -16,7 +16,7 @@ function SortedList({ items, toggleBookmark, pageType }) {
   return (
     <div className='sortedList'>
       <div className='categories_wrapper'>
-        <Categories />
+        <Categories buttonCategory={buttonCategory} items={items} />
       </div>
       <div className='items_wrapper'>
         {
