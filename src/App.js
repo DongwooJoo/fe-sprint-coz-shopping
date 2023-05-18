@@ -44,24 +44,40 @@ function App() {
     setItems(updatedItems);
   };
 
+  const pageType = ['Home', 'ItemsPage', 'BookmarkPage'];
+
   return (
     <div className='App'>
       <BrowserRouter>
         <Routes>
           <Route
             path='/'
-            element={<Home items={items} toggleBookmark={toggleBookmark} />}
+            element={
+              <Home
+                items={items}
+                pageType={pageType}
+                toggleBookmark={toggleBookmark}
+              />
+            }
           />
           <Route
             path='/items'
             element={
-              <ItemsPage items={items} toggleBookmark={toggleBookmark} />
+              <ItemsPage
+                items={items}
+                pageType={pageType}
+                toggleBookmark={toggleBookmark}
+              />
             }
           />
           <Route
             path='/bookmark'
             element={
-              <BookmarkPage items={items} toggleBookmark={toggleBookmark} />
+              <BookmarkPage
+                items={items}
+                pageType={pageType}
+                toggleBookmark={toggleBookmark}
+              />
             }
           />
           {/* 주소창 소문자 */}

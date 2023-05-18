@@ -14,8 +14,11 @@ header {
   justify-content: flex-start;
   align-items: center;
   position: sticky;
+  top: 0;
   box-shadow: 0.01px 0.5px #ebe1e1;
+
   margin-bottom: 5px;
+  z-index: 1000;
 }
 
 h2 {
@@ -27,6 +30,7 @@ h2 {
 
 main {
   padding: 10px;
+  z-index: -1;
 }
 /* header component */
 
@@ -71,6 +75,7 @@ main {
   align-items: center;
   flex-shrink: 0;
   flex: 1;
+  z-index: 1000;
 }
 
 #hamburger_icon svg {
@@ -78,7 +83,7 @@ main {
   color: #3b8680;
   font-size: xx-large;
   position: absolute;
-  z-index: 999;
+  z-index: 1000;
   right: 0;
   cursor: pointer;
 }
@@ -101,12 +106,17 @@ ul {
   padding-left: 0;
 }
 
+menu {
+  z-index: 1000;
+}
+
 #dropdown {
-  position: fixed;
-  top: 70px;
+  position: absolute;
+  top: 80px;
   right: 3rem;
   border-radius: 10px;
-  border: 1px solid gray;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px #747474;
   background-color: white;
   list-style: none;
   margin-top: 0;
@@ -125,12 +135,13 @@ ul {
   }
 }
 
-.faGift {
+.hamburger_faGift {
   color: #3b8680;
 }
 
-.faStar {
+.hamburger_faStar {
   color: #3b8680;
+  position: relative;
 }
 
 .greeting {
@@ -145,6 +156,8 @@ ul {
 
 .bookmarkPage {
   padding: 0.3rem;
+  float: left;
+  margin-left: 10px;
 }
 
 /* homelist */
@@ -154,9 +167,11 @@ ul {
 .item {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #ffffff;
-  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   width: 20vw;
 }
 
@@ -235,6 +250,7 @@ ul {
 section {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* itempage component */
@@ -242,5 +258,62 @@ section {
 .items_wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
+
+/* category component */
+.categories_wrapper {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  width: 45%;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.category_img_container {
+  width: 80px;
+  height: 80px;
+  box-sizing: border-box;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  box-shadow: 1.5px 1.5px 5px #747474;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category_img {
+  width: 100%;
+  cursor: pointer;
+  font-size: xx-large;
+}
+
+.category_img_brand {
+  width: 40%;
+  height: 100%;
+}
+
+.category_title {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* 현재 css 문제 
+
+Dropdown menu
+1. 상단에 고정시켜야 한다.
+
+*/

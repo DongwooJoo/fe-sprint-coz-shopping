@@ -5,12 +5,8 @@ import Item from './Item';
 
 function HomeList({ items, toggleBookmark }) {
   let itemList = items.slice(0, 4);
-  // [1, 2, 3, 4]
-  // items 데이터 중에,
   const filteredBookmark = items.filter((item) => item.isBookmarked);
   let bookmarkedItemList = filteredBookmark.slice(0, 4);
-  // 북마크가 클릭 되었을 때, bookmarkedItems에 객체를 담아야 한다.
-  //
 
   return (
     <main>
